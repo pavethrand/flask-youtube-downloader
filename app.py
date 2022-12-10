@@ -8,7 +8,7 @@ def result():
         #try:
             youtube_url = request.form["u-text"]
             download_path = YouTube(youtube_url).streams[0].download()
-            fname = download_path.split("//")[-1]
+            fname = download_path.split("/tmp")[-1]
             return send_file(fname, as_attachment=True)
         #except:
             #return "Video download failed!"
