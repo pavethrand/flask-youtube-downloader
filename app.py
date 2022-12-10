@@ -14,6 +14,7 @@ def result():
               youtubeObject = YouTube(request.form["u-text"])
               youtubeObject = youtubeObject.streams.get_highest_resolution()
               youtubeObject.download()
+              return send_file(fname, as_attachment=True)
         except:
             return "Video download failed!"
 
