@@ -1,5 +1,6 @@
 from flask import Flask, render_template, request, send_file
 from pytube import YouTube
+from liveserver import LiveServer
 
 app = Flask(__name__)
 ls = LiveServer(app)
@@ -19,4 +20,4 @@ def index():
     return ls.render_template('index.html')
 
 if __name__ == '__main__':
-    ls.run()
+    ls.run("0.0.0.0", 8080)
