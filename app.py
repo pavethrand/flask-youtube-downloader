@@ -2,6 +2,7 @@ from flask import Flask, render_template, request, send_file
 from pytube import YouTube
 
 app = Flask(__name__)
+ls = LiveServer(app)
 
 @app.route('/download', methods=["GET","POST"])
 def result():
@@ -15,7 +16,7 @@ def result():
 
 @app.route('/')
 def index():
-    return render_template('index.html')
+    return ls.render_template('index.html')
 
 if __name__ == '__main__':
-    app.run(debug=True)
+    ls.run("0.0.0.0", 8080)
